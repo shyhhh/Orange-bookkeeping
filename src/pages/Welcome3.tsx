@@ -1,13 +1,13 @@
+import p from '../assets/images/welcome3.svg'
+
 export const Welcome3: React.FC = () => {
   return (
-    <div flex justify-center items-center
-      after="content-[hi] b-1 b-red"
-      before="content-[hi] b-1 b-red"
-      shadow
-    >
-      <header hover:bg-red w-100px b-1 b-red h-40px></header>
-      <main grow-1 b-1 b-blue h-100px></main>
-      <footer w-200px b-1 b-pink h-55px></footer>
+    <div text-center>
+      <img src={p} />
+      <h2 text-32px mt-48px >
+        数据可视化 <br />
+        收支一目了然
+      </h2>
     </div>
   )
 }
