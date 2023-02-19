@@ -1,4 +1,4 @@
-import p from '../assets/images/welcome1.svg'
+import p from '../assets/images/pig.svg'
 export const Welcome1: React.FC = () => {
   return (
     <div text-center>
