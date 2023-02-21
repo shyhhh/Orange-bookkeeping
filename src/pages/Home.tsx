@@ -16,7 +16,7 @@ export const Home: React.FC = () => {
   const isLoadingItems = meData && !itemsData && !itemsError
 
   if (isLoadingMe || isLoadingItems) {
-    return <Loading />
+    return <Loading className="h-screen" />
   }
 
   if (itemsData?.resources[0]) {
