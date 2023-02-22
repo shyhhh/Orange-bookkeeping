@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
 import type { TimeRange } from '../components/TimeRangePicker'
 import { TimeRangePicker } from '../components/TimeRangePicker'
+import { TopMenu } from '../components/TopMenu'
 import { TopNav } from '../components/TopNav'
 import { useMenuStore } from '../stores/useMenuStore'
 import { ItemsList } from './ItemsPage/ItemsList'
@@ -45,6 +46,7 @@ export const ItemsPage: React.FC = () => {
       <ItemsSummary />
       <ItemsList items={items} />
       <AddItemFloatButton />
+      {visible ? <TopMenu /> : null}
     </div>
   )
 }
