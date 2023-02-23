@@ -11,7 +11,9 @@ const getKey = (pageIndex: number, prev: Resources<Item>) => {
 }
 export const ItemsList: React.FC = () => {
   const { data, error, size, setSize } = useSWRInfinite(
-    getKey, async path => (await ajax.get<Resources<Item>>(path)).data
+    getKey,
+    async path => (await ajax.get<Resources<Item>>(path)).data,
+    { revalidateFirstPage: false }
   )
   const onLoadMore = () => {
     setSize(size + 1)
