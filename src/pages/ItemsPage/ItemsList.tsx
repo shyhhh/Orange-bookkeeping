@@ -1,7 +1,15 @@
-interface Props {
-  items: Item[]
+import useSWRInfinite from 'swr/infinite'
+import { ajax } from '../../lib/ajax'
+
+const getKey = (pageIndex: number) => {
+  return `/api/v1/items?page=${pageIndex + 1}`
 }
-export const ItemsList: React.FC<Props> = ({ items }) => {
+export const ItemsList: React.FC = () => {
+  const { data, error } = useSWRInfinite(
+    getKey, async path => (await ajax.get<Resources<Item>>(path)).data
+  )
+  console.log(data, error)
+  const items: Item[] = []
   return <div>
     <ol >
       {items.map(item =>
