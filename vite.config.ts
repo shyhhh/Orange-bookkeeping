@@ -5,6 +5,9 @@ import { viteMockServe } from 'vite-plugin-mock'
 import { svgsprites } from './vite_plugins/svgsprites'
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
+  server: {
+    host: '0.0.0.0'
+  },
   define: {
     isDev: command === 'serve'
   },
