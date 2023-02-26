@@ -24,15 +24,16 @@ export const svgsprites = (options: Options = {}): Plugin => {
       const svgId = path.parse(file).name
       const code = fs.readFileSync(filepath, { encoding: 'utf-8' })
       const symbol = options.noOptimizeList?.includes(svgId)
-      ? code
-      : optimize(code, {
-        plugins: [
-          'cleanupAttrs', 'removeDoctype', 'removeComments', 'removeTitle', 'removeDesc', 'removeEmptyAttrs',
-          { name: 'removeAttrs', params: { attrs: '(data-name|fill)' } },
-        ],
-      }).data
-    sprites.add(svgId, symbol)
+        ? code
+        : optimize(code, {
+          plugins: [
+            'cleanupAttrs', 'removeDoctype', 'removeComments', 'removeTitle', 'removeDesc', 'removeEmptyAttrs',
+            { name: 'removeAttrs', params: { attrs: '(data-name|fill)' } },
+          ],
+        }).data
+      sprites.add(svgId, symbol)
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
     const { data: code } = optimize(sprites.toString({ inline }), {
       plugins: [
         'cleanupAttrs', 'removeDoctype', 'removeComments', 'removeTitle', 'removeDesc', 'removeEmptyAttrs',

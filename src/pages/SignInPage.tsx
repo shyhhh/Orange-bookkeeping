@@ -1,11 +1,11 @@
-import { FormEventHandler } from "react"
+import type { FormEventHandler } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Gradient } from "../components/Gradient"
-import { Icon } from "../components/Icon"
-import { TopNav } from "../components/TopNav"
+import { Gradient } from '../components/Gradient'
+import { Icon } from '../components/Icon'
+import { TopNav } from '../components/TopNav'
 import { ajax } from '../lib/ajax'
 import { hasError, validate } from '../lib/validate'
-import { useSignInStore } from "../stores/useSignInStore"
+import { useSignInStore } from '../stores/useSignInStore'
 export const SignInPage: React.FC = () => {
   const { data, error, setData, setError } = useSignInStore()
   const nav = useNavigate()
@@ -48,7 +48,7 @@ export const SignInPage: React.FC = () => {
         <input shrink-1 h-input-text type="text" placeholder='六位数字'
               max-w="[calc(40%-8px)]"
             value={data.code} onChange={e => setData({ code: e.target.value })} />
-          <button max-w="[calc(60%-8px)]" shrink-0  h-btn>发送验证码</button>
+          <button max-w="[calc(60%-8px)]" shrink-0 h-btn>发送验证码</button>
         </div>
       </div>
       <div mt-100px>

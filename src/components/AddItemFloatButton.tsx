@@ -1,4 +1,4 @@
-import { Icon } from "./Icon"
+import { Icon } from './Icon'
 
 export const AddItemFloatButton: React.FC = () => {
   return (

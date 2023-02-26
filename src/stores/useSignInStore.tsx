@@ -1,5 +1,5 @@
-import create from "zustand";
-import { FormError } from "../lib/validate";
+import create from 'zustand'
+import type { FormError } from '../lib/validate'
 
 type Data = {
   email: string
@@ -13,6 +13,7 @@ interface SignIn {
   setError: (error: Partial<FormError<Data>>) => void
 }
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 export const useSignInStore = create<SignIn>((set, get) => (
   {
     data: {

@@ -1,7 +1,7 @@
-import p from '../assets/images/pig.svg'
-import { ajax } from '../lib/ajax'
 import useSWR from 'swr'
 import { Navigate } from 'react-router-dom'
+import { ajax } from '../lib/ajax'
+import p from '../assets/images/pig.svg'
 import { Loading } from '../components/Loading'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
 export const Home: React.FC = () => {

@@ -1,6 +1,6 @@
 import { animated, useTransition } from '@react-spring/web'
-import { ReactNode, useEffect } from 'react'
-import { useRef, useState } from 'react'
+import type { ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 import { useSwipe } from '../hooks/useSwipe'
@@ -38,7 +38,6 @@ export const WelcomeLayout: React.FC = () => {
   })
   const main = useRef<HTMLElement>(null)
   const { direction } = useSwipe(main)
-  console.log(direction)
   const nav = useNavigate()
   useEffect(() => {
     if (direction === 'left') {
@@ -50,7 +49,7 @@ export const WelcomeLayout: React.FC = () => {
   const { setHasReadWelcomes } = useLocalStore()
   const onSkip = () => {
     setHasReadWelcomes(true)
-    nav('/welcome/home')
+    nav('/home')
   }
   return (
     <div className="bg-#5f34bf" h-screen flex flex-col items-stretch pb-16px>
