@@ -1,6 +1,11 @@
 import { animated, useTransition } from '@react-spring/web'
+<<<<<<< HEAD
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
+=======
+import { ReactNode, useEffect } from 'react'
+import { useRef, useState } from 'react'
+>>>>>>> f470f9511988fc03283632afa6f0a041a86da517
 import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 import { useSwipe } from '../hooks/useSwipe'
@@ -27,7 +32,7 @@ export const WelcomeLayout: React.FC = () => {
     },
     enter: { transform: 'translateX(0%)' },
     leave: { transform: 'translateX(-100%)' },
-    config: { duration: 300 },
+    config: { duration: 1000 },
     onStart: () => {
       setExtraStyle({ position: 'absolute' })
     },
@@ -38,6 +43,10 @@ export const WelcomeLayout: React.FC = () => {
   })
   const main = useRef<HTMLElement>(null)
   const { direction } = useSwipe(main)
+<<<<<<< HEAD
+=======
+  console.log(direction)
+>>>>>>> f470f9511988fc03283632afa6f0a041a86da517
   const nav = useNavigate()
   useEffect(() => {
     if (direction === 'left') {
@@ -49,7 +58,11 @@ export const WelcomeLayout: React.FC = () => {
   const { setHasReadWelcomes } = useLocalStore()
   const onSkip = () => {
     setHasReadWelcomes(true)
+<<<<<<< HEAD
     nav('/home')
+=======
+    nav('/welcome/home')
+>>>>>>> f470f9511988fc03283632afa6f0a041a86da517
   }
   return (
     <div className="bg-#5f34bf" h-screen flex flex-col items-stretch pb-16px>

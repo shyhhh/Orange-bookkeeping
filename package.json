@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/Orange-bookkeeping/",
+    "build": "tsc && vite build",
     "start": "vite --host 0.0.0.0",
     "preview": "vite preview",
     "lint": "eslint .",

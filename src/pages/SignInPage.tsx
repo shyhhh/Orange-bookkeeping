@@ -48,7 +48,11 @@ export const SignInPage: React.FC = () => {
         <input shrink-1 h-input-text type="text" placeholder='六位数字'
               max-w="[calc(40%-8px)]"
             value={data.code} onChange={e => setData({ code: e.target.value })} />
+<<<<<<< HEAD
           <button max-w="[calc(60%-8px)]" shrink-0 h-btn>发送验证码</button>
+=======
+          <button max-w="[calc(60%-8px)]" shrink-0  h-btn>发送验证码</button>
+>>>>>>> f470f9511988fc03283632afa6f0a041a86da517
         </div>
       </div>
       <div mt-100px>
