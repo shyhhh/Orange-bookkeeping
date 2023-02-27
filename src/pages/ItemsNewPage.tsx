@@ -1,24 +1,29 @@
+import type { ReactNode } from 'react'
 import { useState } from 'react'
 import { Gradient } from '../components/Gradient'
 import { Icon } from '../components/Icon'
 import { Tabs } from '../components/Tabs'
 import { TopNav } from '../components/TopNav'
+import s from './ItemsNewPage.module.scss'
 
 type ItemKind = 'income' | 'expenses'
 export const ItemsNewPage: React.FC = () => {
-  const tabItems: { key: ItemKind; text: string }[]
-    = [{ key: 'expenses', text: '支出' }, { key: 'income', text: '收入' }]
+  const tabItems: { key: ItemKind; text: string; element?: ReactNode }[]
+    = [
+      { key: 'expenses', text: '支出', element: <div>支出</div> },
+      { key: 'income', text: '收入', element: <div>收入</div> }
+    ]
   const [tabItem, setTabItem] = useState<ItemKind>('expenses')
   return (
-    <div>
+    <div className={s.wrapper}>
       <Gradient>
         <TopNav title='记一笔' icon={
           <Icon name="back" className='w-24px h-24px' />} />
-        <Tabs tabItems={tabItems} value={tabItem}
-          onChange={(item) => { setTabItem(item) }}
-          className="children-flex-1 text-center"
-        />
       </Gradient>
+      <Tabs tabItems={tabItems} value={tabItem}
+        onChange={(item) => { setTabItem(item) }}
+        className="text-center" classPrefix='itemsNewPage'
+      />
     </div>
   )
 }
