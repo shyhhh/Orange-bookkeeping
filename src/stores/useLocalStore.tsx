@@ -5,7 +5,6 @@ interface Local {
   setHasReadWelcomes: (read: boolean) => void
 }
 const init = localStorage.getItem('hasReadWelcomes')
-// eslint-disable-next-line unused-imports/no-unused-vars
 export const useLocalStore = create<Local>((set, get) => ({
   hasReadWelcomes: init === 'yes',
   setHasReadWelcomes: (read: boolean) => {
