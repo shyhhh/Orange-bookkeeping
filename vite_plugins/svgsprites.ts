@@ -33,7 +33,7 @@ export const svgsprites = (options: Options = {}): Plugin => {
         }).data
       sprites.add(svgId, symbol)
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { data: code } = optimize(sprites.toString({ inline }), {
       plugins: [
         'cleanupAttrs', 'removeDoctype', 'removeComments', 'removeTitle', 'removeDesc', 'removeEmptyAttrs',
