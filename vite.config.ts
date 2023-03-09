@@ -11,6 +11,8 @@ export default defineConfig(({ command }) => ({
   define: {
     isDev: command === 'serve'
   },
+  base: './',
+  assetsDir: 'assets',
   plugins: [
     UnoCSS(),
     react(),
