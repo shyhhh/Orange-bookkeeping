@@ -6,14 +6,13 @@ type Props = {
 }
 
 export const Tags: React.FC<Props> = (props) => {
-  const kind = { props }
   const tags = Array.from({ length: 71 })
   return (
     <div>
       <ol grid grid-cols="[repeat(auto-fit,48px)]" justify-center gap-x-32px
         gap-y-16px py-16px px-8px>
         <li>
-          <Link to={`/tags/new?kind=${kind}`}>
+          <Link to={`/tags/new?kind=${props.kind}`}>
             <span block w-48px h-48px rounded="24px" bg="#EFEFEF"
               flex justify-center items-center text-24px text="#8F4CD7"
             ><Icon name="add" /></span>
