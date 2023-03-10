@@ -2,6 +2,7 @@ import type { FormEventHandler } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Gradient } from '../components/Gradient'
 import { Icon } from '../components/Icon'
+import { Input } from '../components/Input'
 import { TopNav } from '../components/TopNav'
 import { ajax } from '../lib/ajax'
 import { hasError, validate } from '../lib/validate'
@@ -37,24 +38,23 @@ export const SignInPage: React.FC = () => {
         <h1 text-32px text="#7878FF" font-bold>橙子记账</h1>
       </div>
       <form h-form onSubmit={onSubmit}>
+        <Input label='邮箱地址' type="text" placeholder='请输入邮箱，然后点击发送验证码'
+          value={data.email} onChange={value => setData({ email: value })}
+          error={error.email?.[0]}
+        />
         <div>
-          <span h-form-label>邮箱地址 {error.email?.[0] && <span text-red-500>{error.email[0]}</span>}</span>
-          <input h-input-text type="text" placeholder='请输入邮箱，然后点击发送验证码'
-            value={data.email} onChange={e => setData({ email: e.target.value })} />
-        </div>
-      <div>
-        <span h-form-label>验证码{error.code?.[0] && <span text-red-500>{error.code[0]}</span>}</span>
-        <div flex gap-x-16px>
-        <input shrink-1 h-input-text type="text" placeholder='六位数字'
+          <span h-form-label>验证码{error.code?.[0] && <span text-red-500>{error.code[0]}</span>}</span>
+          <div flex gap-x-16px>
+            <input shrink-1 h-input-text type="text" placeholder='六位数字'
               max-w="[calc(40%-8px)]"
-            value={data.code} onChange={e => setData({ code: e.target.value })} />
-          <button max-w="[calc(60%-8px)]" shrink-0 h-btn>发送验证码</button>
+              value={data.code} onChange={e => setData({ code: e.target.value })} />
+            <button max-w="[calc(60%-8px)]" shrink-0 h-btn>发送验证码</button>
+          </div>
         </div>
-      </div>
-      <div mt-100px>
-        <button h-btn type="submit">登录</button>
-      </div>
-    </form>
+        <div mt-100px>
+          <button h-btn type="submit">登录</button>
+        </div>
+      </form>
     </>
   )
 }
