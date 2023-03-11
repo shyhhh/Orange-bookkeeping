@@ -26,6 +26,18 @@ export const SignInPage: React.FC = () => {
       nav('/home')
     }
   }
+  const onClickCode = () => {
+    const newError = validate({ email: data.email }, [
+      { key: 'email', type: 'pattern', regex: /^.+@.+$/, message: '邮箱地址格式不正确' }
+    ])
+    setError(newError)
+    if (hasError(newError)) {
+      window.console.log('有错')
+    } else {
+      window.console.log('没错')
+      // 请求
+    }
+  }
   return (
     <>
       <Gradient>
@@ -43,7 +55,7 @@ export const SignInPage: React.FC = () => {
           error={error.email?.[0]}
         />
         <Input label='验证码' type="sms_code" placeholder='六位数字' value={data.code}
-          onChange={code => setData({ code })}
+          onChange={code => setData({ code })} onClick={onClickCode}
           error={error.code?.[0]} />
         <div mt-100px>
           <button h-btn type="submit">登录</button>
