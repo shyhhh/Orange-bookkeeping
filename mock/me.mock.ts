@@ -8,7 +8,7 @@ export const meMock: MockMethod = {
     return {
       resource: {
         id: 1,
-        email: 'frank@frank.com',
+        email: 'xxxx@xxxx.com',
         updated_at: '2021-08-01T00:00:00.000Z',
         created_at: '2021-08-01T00:00:00.000Z',
       }
