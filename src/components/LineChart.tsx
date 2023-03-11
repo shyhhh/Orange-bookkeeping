@@ -1,6 +1,7 @@
 import * as echarts from 'echarts'
+import type { EChartsOption } from 'echarts'
 import { useEffect, useRef } from 'react'
-type EChartsOption = echarts.EChartsOption
+
 type Props = {
   className?: string
   items?: { x: number | string; y: number }[]
