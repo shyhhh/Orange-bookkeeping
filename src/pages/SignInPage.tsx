@@ -27,11 +27,14 @@ export const SignInPage: React.FC = () => {
     ])
     setError(newError)
     if (!hasError(newError)) {
+      // 发起请求
       const response = await ajax.post<{ jwt: string }>('http://121.196.236.94:8080/api/v1/session', data)
         .catch(onSubmitError)
+      // 获取 JWT
       const jwt = response.data.jwt
-      window.console.log('jwt', jwt)
+      // JWT 放入 LocalStorage
       localStorage.setItem('jwt', jwt)
+      // 回到首页
       nav('/home')
     }
   }
