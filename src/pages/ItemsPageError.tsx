@@ -6,7 +6,7 @@ export const ItemsPageError: React.FC = () => {
   const e = error as Error
   const loc = useLocation()
   if (e instanceof ErrorUnauthorized) {
-    const from = encodeURIComponent(`${loc.pathname}${loc.search}`)
+     const from = encodeURIComponent(`${loc.pathname}${loc.search}`)
     return <Navigate to={`/sign_in?from=${from}`} />
   } else if (e instanceof ErrorEmptyData) {
     return <Navigate replace to='/home' />
