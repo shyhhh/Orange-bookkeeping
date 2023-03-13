@@ -35,7 +35,7 @@ export const SignInPage: React.FC = () => {
       // JWT 放入 LocalStorage
       localStorage.setItem('jwt', jwt)
       // 回到首页
-      nav('/home')
+      nav('/items')
     }
   }
   const sendSmsCode = async () => {
