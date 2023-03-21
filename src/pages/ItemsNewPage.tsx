@@ -36,8 +36,8 @@ export const ItemsNewPage: React.FC = () => {
       />
       <div>{JSON.stringify(data)}</div>
       <ItemAmount className="grow-0 shrink-0" itemDate={
-        <ItemDate value={data.happen_at} onChange={(d) => setData({ happen_at: d })} />
-      } />
+        <ItemDate value={data.happen_at} onChange={(happen_at) => setData({ happen_at })} />
+      } value={data.amount} onChange={(amount) => setData({ amount })} />
     </div>
   )
 }
