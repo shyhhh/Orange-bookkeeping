@@ -14,7 +14,7 @@ vhCheck()
 export const App: React.FC = () => {
   const { visible } = useLoadingStore()
   const { popup, hide, show } = usePopup({
-    children: <StyledLoadingContainer visible={visible}>
+    children: <StyledLoadingContainer visible={visible} p-16px>
       <Spin className="w-32px h-32px" name="loading" />
     </StyledLoadingContainer>,
     position: 'center'
