@@ -14,9 +14,9 @@ vhCheck()
 export const App: React.FC = () => {
   const { visible } = useLoadingStore()
   const { popup, hide, show } = usePopup({
-    children: <div p-16px>
+    children: <StyledLoadingContainer visible={visible}>
       <Spin className="w-32px h-32px" name="loading" />
-    </div>,
+    </StyledLoadingContainer>,
     position: 'center'
   })
   useEffect(() => {
@@ -30,6 +30,13 @@ export const App: React.FC = () => {
     </div>
   )
 }
+interface StyledLoadingContainerProps {
+  visible: boolean
+}
+
+const StyledLoadingContainer = styled.div<StyledLoadingContainerProps>`
+  display: ${props => (props.visible ? 'block' : 'none')};
+`
 
 const Spin = styled(Icon)`
   animation: spin 1s linear infinite;

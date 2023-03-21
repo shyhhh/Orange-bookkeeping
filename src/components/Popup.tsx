@@ -22,7 +22,7 @@ export const Popup: React.FC<Props> = (props) => {
   })
   const maskStyles2 = {
     ...maskStyles,
-    visibility: (maskVisible ? 'visible' : 'hidden') as 'visible' | 'hidden'
+    visibility: (maskVisible ? 'visible' : 'hidden') as 'visible' | 'hidden',
   } // workaround
   const wrapperStyles = useSpring({
     opacity: visible ? 1 : 0,
