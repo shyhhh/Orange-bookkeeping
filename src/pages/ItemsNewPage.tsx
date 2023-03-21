@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { useState } from 'react'
 import { Gradient } from '../components/Gradient'
 import { Icon } from '../components/Icon'
 import { Tabs } from '../components/Tabs'
@@ -7,6 +6,7 @@ import { TopNav } from '../components/TopNav'
 import { useCreateItemStore } from '../stores/useCreateItemStore'
 import { Tags } from './ItemsNewPage/Tags'
 import { DateAndAmount } from './ItemsNewPage/DateAndAmount'
+import { ItemDate } from './ItemsNewPage/ItemDate'
 import s from './ItemsNewPage.module.scss'
 
 export const ItemsNewPage: React.FC = () => {
@@ -35,7 +35,7 @@ export const ItemsNewPage: React.FC = () => {
         classPrefix='itemsNewPage'
       />
       <div>{JSON.stringify(data)}</div>
-      <DateAndAmount className="grow-0 shrink-0" />
+      <DateAndAmount className="grow-0 shrink-0" itemDate={ <ItemDate/>} />
     </div>
   )
 }
