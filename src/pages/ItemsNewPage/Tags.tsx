@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import useSWR from 'swr'
 import { Icon } from '../../components/Icon'
+import { useAjax } from '../../lib/ajax'
+import { useTagsStore } from '../../stores/useTagsStore'
 
 type Props = {
   kind: Item['kind']
@@ -8,22 +11,20 @@ type Props = {
 }
 
 export const Tags: React.FC<Props> = (props) => {
-  const tags = Array.from({ length: 91 }).map<Tag>((tag, index) => ({
-    id: index,
-    name: `打车${index}`,
-    kind: 'expenses',
-    sign: '😶',
-    user_id: 1,
-    created_at: '2000-01-01T00:00:00.000Z',
-    updated_at: '2000-01-01T00:00:00.000Z',
-    deleted_at: null
-  }))
+  const { kind } = props
+  const { list: tags, setList } = useTagsStore()
+  const { get } = useAjax({ showLoading: true, handleError: true })
+  useSWR('api/v1/tags', async (path) => {
+    const response = await get<Resources<Tag>>(path)
+    setList(response.data.resources)
+  })
+
   return (
     <div>
       <ol grid grid-cols="[repeat(auto-fit,48px)]" justify-center gap-x-32px
         gap-y-16px py-16px px-8px>
         <li>
-          <Link to={`/tags/new?kind=${props.kind}`}>
+          <Link to={`/tags/new?kind=${kind}`}>
             <span block w-48px h-48px rounded="24px" bg="#EFEFEF"
               flex justify-center items-center text-24px text="#8F4CD7"
             ><Icon name="add" /></span>
