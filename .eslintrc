@@ -25,6 +25,7 @@
     ],
     "@typescript-eslint/comma-dangle": "off",
     "unused-imports/no-unused-vars": "off",
-    "object-property-newline": "off"
+    "object-property-newline": "off",
+    "no-mixed-operators": "off"
   }
 }
