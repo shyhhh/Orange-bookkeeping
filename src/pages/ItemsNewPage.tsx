@@ -12,8 +12,7 @@ import { ItemDate } from './ItemsNewPage/ItemDate'
 import s from './ItemsNewPage.module.scss'
 
 export const ItemsNewPage: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { data, error, setData, setError } = useCreateItemStore()
+  const { data, setData, setError } = useCreateItemStore()
   const tabItems: { key: Item['kind']; text: string; element?: ReactNode }[] = [
     {
       key: 'expenses', text: '支出', element:
@@ -39,7 +38,7 @@ export const ItemsNewPage: React.FC = () => {
       window.alert(message)
     } else {
       const response = await post<Resource<Item>>('/api/v1/items', data)
-      console.log(response.data.resource)
+      window.console.log(response.data.resource)
     }
   }
   return (
