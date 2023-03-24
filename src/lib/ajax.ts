@@ -33,9 +33,6 @@ export const useAjax = (options?: Options) => {
     403: () => {
       window.alert('没有权限')
     },
-    unknown: () => {
-      window.alert('未知错误')
-    }
   }
   const showLoading = options?.showLoading || false
   const handleError = options?.handleError ?? true
@@ -45,7 +42,7 @@ export const useAjax = (options?: Options) => {
     if (error.response) {
       if (handleError) {
         const { status } = error.response
-        const fn = table[status] || table.unknown
+        const fn = table[status]
         fn?.()
       }
     }
