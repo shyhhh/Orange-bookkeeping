@@ -7,9 +7,9 @@ export const summaryMock: MockMethod[] = [{
   response: () => {
     return {
       groups: [
-        { happen_at: '2018-06-18', tag: null, amount: 300 },
-        { happen_at: '2018-06-19', tag: null, amount: 300 },
-        { happen_at: '2018-06-20', tag: null, amount: 300 }
+        { happen_at: '2023-03-24', tag: null, amount: 300 },
+        { happen_at: '2023-03-25', tag: null, amount: 600 },
+        { happen_at: '2023-03-26', tag: null, amount: 200 }
       ],
       total: 900
     }
