@@ -17,7 +17,7 @@ export const Tabs = <T extends string>(props: Props<T>) => {
   return (
     <div className={cs(className, classPrefix)} flex flex-col>
       <ol flex text-white children-px-24px children-py-12px bg="[rgb(143,76,215)]"
-         grow-0 shrink-0 className={classPrefix ? `${classPrefix}-menu` : ''}>
+        grow-0 shrink-0 className={classPrefix ? `${classPrefix}-menu` : ''}>
         {tabItems.map(item =>
           <li key={item.key} className={
             cs(
