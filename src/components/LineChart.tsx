@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 
 type Props = {
   className?: string
-  items?: { x: number | string; y: number }[]
+  items?: { x: number | string; y: number | string }[]
 }
 export const LineChart: React.FC<Props> = (props) => {
   const { items, className } = props
