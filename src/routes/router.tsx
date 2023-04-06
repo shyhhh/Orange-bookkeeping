@@ -17,6 +17,7 @@ import { Welcome1 } from '../pages/Welcome1'
 import { Welcome2 } from '../pages/Welcome2'
 import { Welcome3 } from '../pages/Welcome3'
 import { Welcome4 } from '../pages/Welcome4'
+import { ErrorPage } from '../pages/ErrorPage'
 
 export const router = createBrowserRouter([
   { path: '/', element: <Root />, },
@@ -36,28 +37,28 @@ export const router = createBrowserRouter([
     // 放在这里的路由全部都需要登录
     path: '/',
     element: <Outlet />,
-    errorElement: <ItemsPageError />,
-    loader: async () =>
-      preload('/api/v1/me', (path) => axios.get<Resource<User>>(path)
-        .then(r => r.data, e => { throw new ErrorUnauthorized() })),
+    errorElement: <ErrorPage />,
+    loader: async () => {
+      return await axios.get<Resource<User>>('/api/v1/me').catch(e => {
+        if (e.response?.status === 401) { throw new ErrorUnauthorized }
+      })
+    },
     children: [
       {
         path: '/items',
         element: <ItemsPage />,
-        errorElement: <ItemsPageError />,
+        errorElement: <ErrorPage />,
         loader: async () => {
           const onError = (error: AxiosError) => {
             if (error.response?.status === 401) { throw new ErrorUnauthorized() }
             throw error
           }
-          return preload('/api/v1/items?page=1', async (path) => {
-            const response = await axios.get<Resources<Item>>(path).catch(onError)
-            if (response.data.resources.length > 0) {
-              return response.data
-            } else {
-              throw new ErrorEmptyData()
-            }
-          })
+          const response = await axios.get<Resources<Item>>('/api/v1/items?page=1').catch(onError)
+          if (response.data.resources.length > 0) {
+            return response.data
+          } else {
+            throw new ErrorEmptyData()
+          }
         }
       },
       { path: '/items/new', element: <ItemsNewPage />, },
