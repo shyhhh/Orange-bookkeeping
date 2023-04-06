@@ -4,7 +4,6 @@ import UnoCSS from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import { svgsprites } from './vite_plugins/svgsprites'
 // https://vitejs.dev/config/
-// @ts-expect-error
 export default defineConfig((env) => {
   const { command } = env
   return {

@@ -88,7 +88,7 @@ export const Column: React.FC<ColumnProps> = (props) => {
         onChange(items[Math.abs(y / itemHeight)])
       }}
     >
-      <div border-b-1 border-t-1 b="#eee" absolute top="50%" w-full
+      <div border-b-1 border-t-1 b-t-solid b-b-solid b="#eee" absolute top="50%" w-full
         style={{ height: itemHeight, transform: `translateY(${-itemHeight / 2}px)` }} />
       <div absolute top="50%" w-full style={{ transform: `translateY(${-itemHeight / 2}px)` }}>
         <ol style={{ transform: `translateY(${translateY}px)` }} text-center children-flex children-items-center children-justify-center>
