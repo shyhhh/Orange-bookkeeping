@@ -7,4 +7,6 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:shyhhh/Orange-bookkeeping.git main:preview-pages
+echo "================部署成功========================"
 cd -
+·
