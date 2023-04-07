@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Gradient } from '../components/Gradient'
 import { Tabs } from '../components/Tabs'
 import { TopNav } from '../components/TopNav'
@@ -6,12 +7,11 @@ import { useCreateItemStore } from '../stores/useCreateItemStore'
 import { hasError, validate } from '../lib/validate'
 import { useAjax } from '../lib/ajax'
 import { BackIcon } from '../components/BackIcon'
+import { time } from '../lib/time'
 import { Tags } from './ItemsNewPage/Tags'
 import { ItemAmount } from './ItemsNewPage/ItemAmount'
 import { ItemDate } from './ItemsNewPage/ItemDate'
 import s from './ItemsNewPage.module.scss'
-import { useNavigate } from 'react-router-dom'
-import { time } from '../lib/time'
 
 export const ItemsNewPage: React.FC = () => {
   const { data, setData, setError } = useCreateItemStore()

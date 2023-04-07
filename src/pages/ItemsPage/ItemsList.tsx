@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import useSWRInfinite from 'swr/infinite'
 import { useAjax } from '../../lib/ajax'
-import { Time, time } from '../../lib/time'
+import type { Time } from '../../lib/time'
+import { time } from '../../lib/time'
 interface Props {
   start: Time
   end: Time

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import useSWR from 'swr'
 import { Gradient } from '../components/Gradient'
-import { Icon } from '../components/Icon'
 import { Input } from '../components/Input'
 import { LineChart } from '../components/LineChart'
 import { PieChart } from '../components/PieChart'

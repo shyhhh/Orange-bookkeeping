@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import type { AxiosError, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'

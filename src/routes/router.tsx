@@ -1,14 +1,11 @@
 import type { AxiosError } from 'axios'
-import axios from 'axios'
 import { Outlet, createHashRouter } from 'react-router-dom'
-import { preload } from 'swr'
 import { Root } from '../components/Root'
 import { ErrorEmptyData, ErrorUnauthorized } from '../errors'
 import { WelcomeLayout } from '../layouts/WelcomeLayout'
 import { Home } from '../pages/Home'
 import { ItemsNewPage } from '../pages/ItemsNewPage'
 import { ItemsPage } from '../pages/ItemsPage'
-import { ItemsPageError } from '../pages/ItemsPageError'
 import { SignInPage } from '../pages/SignInPage'
 import { StatisticsPage } from '../pages/StatisticsPage'
 import { TagsEditPage } from '../pages/TagsEditPage'
@@ -42,7 +39,7 @@ export const router = createHashRouter([
     errorElement: <ErrorPage />,
     loader: async () => {
       return await ajax.get<Resource<User>>('/api/v1/me').catch(e => {
-        if (e.response?.status === 401) { throw new ErrorUnauthorized }
+        if (e.response?.status === 401) { throw new ErrorUnauthorized() }
         throw e
       })
     },
