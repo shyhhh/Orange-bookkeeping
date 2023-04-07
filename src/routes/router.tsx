@@ -1,6 +1,6 @@
 import type { AxiosError } from 'axios'
 import axios from 'axios'
-import { Outlet, createBrowserRouter } from 'react-router-dom'
+import { Outlet, createHashRouter } from 'react-router-dom'
 import { preload } from 'swr'
 import { Root } from '../components/Root'
 import { ErrorEmptyData, ErrorUnauthorized } from '../errors'
@@ -21,7 +21,7 @@ import { ErrorPage } from '../pages/ErrorPage'
 import { ajax } from '../lib/ajax'
 import { ComingSoonPage } from '../pages/ComingSoonPage'
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   { path: '/', element: <Root />, },
   { path: '/home', element: <Home /> },
   {
