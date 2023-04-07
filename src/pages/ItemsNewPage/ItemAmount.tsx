@@ -16,7 +16,7 @@ export const ItemAmount: React.FC<Props> = (props) => {
     if (dotIndex >= 0 && str.length - dotIndex > 3) { return }
     if (str.length > 16) { return }
     _setOutput(str)
-    onChange?.(parseFloat(str) / 100)
+    onChange?.((parseFloat(str) * 10 * 10))
   }
   const { className } = props
   const append = (chart: string) => {

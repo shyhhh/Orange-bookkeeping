@@ -10,6 +10,7 @@ import { Tags } from './ItemsNewPage/Tags'
 import { ItemAmount } from './ItemsNewPage/ItemAmount'
 import { ItemDate } from './ItemsNewPage/ItemDate'
 import s from './ItemsNewPage.module.scss'
+import { useNavigate } from 'react-router-dom'
 
 export const ItemsNewPage: React.FC = () => {
   const { data, setData, setError } = useCreateItemStore()
@@ -24,6 +25,7 @@ export const ItemsNewPage: React.FC = () => {
     }
   ]
   const { post } = useAjax({ showLoading: true, handleError: true })
+  const nav = useNavigate()
   const onSubmit = async () => {
     const error = validate(data, [
       { key: 'kind', type: 'required', message: '请选择类型：收入或支出' },
@@ -37,8 +39,8 @@ export const ItemsNewPage: React.FC = () => {
       const message = Object.values(error).flat().join('\n')
       window.alert(message)
     } else {
-      const response = await post<Resource<Item>>('/api/v1/items', data)
-      // TODO: 这里还没做完
+      await post<Resource<Item>>('/api/v1/items', data)
+      nav('/items')
     }
   }
   return (
@@ -52,6 +54,7 @@ export const ItemsNewPage: React.FC = () => {
         className="text-center grow-1 shrink-1 overflow-hidden"
         classPrefix='itemsNewPage'
       />
+      {/* {JSON.stringify(data)} */}
       <ItemAmount className="grow-0 shrink-0" itemDate={
         <ItemDate value={data.happen_at} onChange={(happen_at) => setData({ happen_at })} />
       } value={data.amount} onChange={(amount) => setData({ amount })} onSubmit={onSubmit} />
