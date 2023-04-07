@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 rm -rf dist
-npm run build
+npm run build -- --base=/Orange-bookkeeping/
 cd dist
 git init
 git checkout -B main
