@@ -28,5 +28,5 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:$user/$repo.git main:preview-pages
-git home
 cd -
+git home
