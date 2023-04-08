@@ -27,14 +27,14 @@
     "zustand": "4.1.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.35.2",
+    "@antfu/eslint-config": "0.27.0",
     "@faker-js/faker": "7.6.0",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/styled-components": "5.1.26",
-    "@unocss/core": "^0.50.4",
+    "@unocss/core": "0.50.4",
     "@vitejs/plugin-react": "3.1.0",
-    "eslint": "8.33.0",
+    "eslint": "8.25.0",
     "svgo": "3.0.1",
     "svgstore": "3.0.1",
     "typescript": "4.8.4",

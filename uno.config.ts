@@ -3,6 +3,7 @@ import {
   presetTypography, presetUno
 } from 'unocss'
 import transformerAttributifyJsx from './transformer-attributify-jsx'
+// 使用 babel 的方法 import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx-babel'
 
 export default defineConfig({
   theme: {
