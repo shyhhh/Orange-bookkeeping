@@ -68,7 +68,7 @@ export const router = createHashRouter([
       { path: '/tags/new', element: <TagsNewPage /> },
       { path: '/tags/:id', element: <TagsEditPage /> },
       { path: '/sign_in', element: <SignInPage /> },
-      { path: '/statistics', element: <Suspense fallback={<Loading />}><StatisticsPage /></Suspense> },
+      { path: '/statistics', element: <Suspense fallback={<Loading className='h-screen' />}><StatisticsPage /></Suspense> },
       { path: '/export', element: <ComingSoonPage /> },
       { path: '/noty', element: <ComingSoonPage /> },
     ]
