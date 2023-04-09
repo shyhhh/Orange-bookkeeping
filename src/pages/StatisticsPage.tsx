@@ -26,7 +26,7 @@ const getKey = ({ start, end, kind, group_by }: GetKeyParams) => {
   return `/api/v1/items/summary?happened_after=${start.format('yyyy-MM-dd')}&happened_before=${end.format('yyyy-MM-dd')}&kind=${kind}&group_by=${group_by}`
 }
 
-export const StatisticsPage: React.FC = () => {
+const StatisticsPage: React.FC = () => {
   const [timeRange, setTimeRange] = useState<TimeRange>({
     name: 'thisMonth',
     start: time().firstDayOfMonth,
@@ -98,3 +98,5 @@ export const StatisticsPage: React.FC = () => {
     </div>
   )
 }
+
+export default StatisticsPage

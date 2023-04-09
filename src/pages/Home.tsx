@@ -2,7 +2,6 @@ import useSWR from 'swr'
 import { Link, Navigate } from 'react-router-dom'
 import { useAjax } from '../lib/ajax'
 import { useTitle } from '../hooks/useTitle'
-import { Loading } from '../components/Loading'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
 import { Icon } from '../components/Icon'
 interface Props {
@@ -23,7 +22,7 @@ export const Home: React.FC<Props> = (props) => {
   const isLoadingItems = meData && !itemsData && !itemsError
 
   if (isLoadingMe || isLoadingItems) {
-    return <Loading className="h-screen" />
+    return <div text-center p-16px>加载中...</div>
   }
 
   if (itemsData?.resources[0]) {
