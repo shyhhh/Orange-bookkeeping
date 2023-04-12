@@ -3,13 +3,13 @@ import { Icon } from '../components/Icon'
 export const Welcome1: React.FC = () => {
   return (
     <div text-center>
-      <Icon className='w-128px h-130px' name='pig'/>
-      <h2 text-32px mt-48px >
+      <Icon className='w-128px h-130px' name='pig' />
+      <h2 text-32px mt-48px text='#333'>
         会挣钱 <br />
-        还要会省钱
+        还会省钱
       </h2>
       <div mt-64px>
-        <Link text-32px color="#6035BF" font-bold to="/welcome/2">下一页</Link>
+        <Link text-32px color=" #ffc400f4" font-bold to="/welcome/2">下一页</Link>
       </div>
     </div>
   )
