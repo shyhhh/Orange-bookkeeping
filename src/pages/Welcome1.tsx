@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import Lottie from 'lottie-react'
 import groovyWalkAnimation from '../assets/json/wel1.json'
+import { WelcomeScreen } from '../components/WelcomeScreen'
 
 export const Welcome1: React.FC = () => {
   return (
     <div text-center>
-      <Lottie className='w-300px h-300px m-t--50px' animationData={groovyWalkAnimation} loop={true} />
+      <WelcomeScreen animationData={groovyWalkAnimation} />
       <h2 text-32px text='#333'>
         会挣钱 <br />
         还会省钱
