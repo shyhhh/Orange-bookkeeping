@@ -42,7 +42,7 @@ export const SmsCodeInput: React.FC<Props> = (props) => {
       <input shrink-1 h-input-text type="text" placeholder={placeholder} max-w="[calc(40%-8px)]"
         value={value} onChange={e => onChange?.(e.target.value)} />
       {started
-        ? <button type="button" max-w="[calc(60%-8px)]" shrink-0 h-btn disabled text-gray>
+        ? <button type="button" max-w="[calc(60%-8px)]" shrink-0 h-btn disabled text='#f8e1b3'>
           {count}秒后可重发
         </button>
         : <button type='button' max-w="[calc(60%-8px)]" shrink-0 h-btn onClick={onClick}>发送验证码</button>
