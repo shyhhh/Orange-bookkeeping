@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
+import Lottie from 'lottie-react'
 import { useLocalStore } from '../stores/useLocalStore'
-import p from '../assets/images/welcome4.svg'
+import groovyWalkAnimation from '../assets/json/wel4.json'
 
 export const Welcome4: React.FC = () => {
   const { setHasReadWelcomes } = useLocalStore()
@@ -11,8 +12,8 @@ export const Welcome4: React.FC = () => {
   }
   return (
     <div text-center>
-      <img w-129px h-83px src={p} />
-      <h2 text-32px mt-48px >
+      <Lottie className='w-300px h-300px m-t--50px' animationData={groovyWalkAnimation} loop={true} />
+      <h2 text-32px text='#333'>
         云备份 <br />
         再也不怕数据丢失
       </h2>
