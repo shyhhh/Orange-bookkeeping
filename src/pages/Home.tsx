@@ -3,7 +3,9 @@ import { Link, Navigate } from 'react-router-dom'
 import { useAjax } from '../lib/ajax'
 import { useTitle } from '../hooks/useTitle'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
-import { Icon } from '../components/Icon'
+import groovyWalkAnimation from '../assets/json/home.json'
+import { WelcomeScreen } from '../components/WelcomeScreen'
+// import { Icon } from '../components/Icon'
 interface Props {
   title?: string
 }
@@ -31,7 +33,8 @@ export const Home: React.FC<Props> = (props) => {
 
   return <div>
     <div flex justify-center items-center>
-      <Icon className="mt-20vh mb-20vh w-128px h-128px" name="pig" />
+      {/* <Icon className="mt-20vh mb-20vh w-128px h-128px" name="pig" /> */}
+      <WelcomeScreen animationData={groovyWalkAnimation} className="mt-30 mb-10"/>
     </div>
     <div px-16px>
       <Link to="/items/new">

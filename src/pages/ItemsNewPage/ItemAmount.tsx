@@ -59,7 +59,7 @@ export const ItemAmount: React.FC<Props> = (props) => {
           <button type="button" row-start-4 col-start-3 row-end-5 col-end-4 onClick={() => append('.')}>.</button>
           <button type="button" row-start-1 col-start-4 row-end-3 col-end-5 onClick={clear}>清空</button>
           <button onClick={onSubmit} type="submit" row-start-3 col-start-4 row-end-5 col-end-5
-            bg="#5C33BE" text-white >提交</button>
+            bg="#ffc141" text-white >提交</button>
         </div>
       </div>
     </>
