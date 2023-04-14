@@ -36,6 +36,7 @@ export const ItemAmount: React.FC<Props> = (props) => {
   }
   const clear = () => {
     setOutput(output.slice(0, output.length - 1))
+    if (output.length === 1) { setOutput('0') }
   }
   const empty = () => {
     setOutput('0')
