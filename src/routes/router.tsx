@@ -3,35 +3,35 @@ import { Outlet, createHashRouter } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import { Root } from '../components/Root'
 import { ErrorEmptyData, ErrorUnauthorized } from '../errors'
-import { WelcomeLayout } from '../layouts/WelcomeLayout'
-import { Home } from '../pages/Home'
 import { ItemsNewPage } from '../pages/ItemsNewPage'
 import { ItemsPage } from '../pages/ItemsPage'
 import { SignInPage } from '../pages/SignInPage'
 import { TagsEditPage } from '../pages/TagsEditPage'
 import { TagsNewPage } from '../pages/TagsNewPage'
-import { Welcome1 } from '../pages/Welcome1'
-import { Welcome2 } from '../pages/Welcome2'
-import { Welcome3 } from '../pages/Welcome3'
-import { Welcome4 } from '../pages/Welcome4'
 import { ErrorPage } from '../pages/ErrorPage'
 import { ajax } from '../lib/ajax'
-import { ComingSoonPage } from '../pages/ComingSoonPage'
 import { Loading } from '../components/Loading'
 
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'))
+const WelcomeLayout = lazy(() => import('../layouts/WelcomeLayout'))
+const ComingSoonPage = lazy(() => import('../pages/ComingSoonPage'))
+const Home = lazy(() => import('../pages/Home'))
+const Welcome1 = lazy(() => import('../pages/Welcome1'))
+const Welcome2 = lazy(() => import('../pages/Welcome2'))
+const Welcome3 = lazy(() => import('../pages/Welcome3'))
+const Welcome4 = lazy(() => import('../pages/Welcome4'))
 
 export const router = createHashRouter([
   { path: '/', element: <Root />, },
-  { path: '/home', element: <Home /> },
+  { path: '/home', element: <Suspense fallback=''><Home /></Suspense> },
   {
     path: '/welcome',
-    element: <WelcomeLayout />,
+    element: <Suspense fallback={<Loading className='h-screen' />}><WelcomeLayout /></Suspense>,
     children: [
-      { path: '1', element: <Welcome1 /> },
-      { path: '2', element: <Welcome2 /> },
-      { path: '3', element: <Welcome3 /> },
-      { path: '4', element: <Welcome4 /> },
+      { path: '1', element: <Suspense fallback={<Loading className='h-screen' />}><Welcome1 /></Suspense> },
+      { path: '2', element: <Suspense fallback={<Loading className='h-screen' />}><Welcome2 /></Suspense> },
+      { path: '3', element: <Suspense fallback={<Loading className='h-screen' />}><Welcome3 /></Suspense> },
+      { path: '4', element: <Suspense fallback={<Loading className='h-screen' />}><Welcome4 /></Suspense> },
     ]
   },
   { path: '/sign_in', element: <SignInPage /> },
@@ -69,8 +69,8 @@ export const router = createHashRouter([
       { path: '/tags/:id', element: <TagsEditPage /> },
       { path: '/sign_in', element: <SignInPage /> },
       { path: '/statistics', element: <Suspense fallback={<Loading className='h-screen' />}><StatisticsPage /></Suspense> },
-      { path: '/export', element: <ComingSoonPage /> },
-      { path: '/noty', element: <ComingSoonPage /> },
+      { path: '/export', element: <Suspense fallback={<Loading className='h-screen' />}><ComingSoonPage /></Suspense> },
+      { path: '/noty', element: <Suspense fallback={<Loading className='h-screen' />}><ComingSoonPage /></Suspense> },
     ]
   },
 ])

@@ -3,7 +3,7 @@ import { useLocalStore } from '../stores/useLocalStore'
 import groovyWalkAnimation from '../assets/json/wel4.json'
 import { WelcomeScreen } from '../components/WelcomeScreen'
 
-export const Welcome4: React.FC = () => {
+const Welcome4: React.FC = () => {
   const { setHasReadWelcomes } = useLocalStore()
   const nav = useNavigate()
   const onSkip = () => {
@@ -17,6 +17,11 @@ export const Welcome4: React.FC = () => {
         云备份 <br />
         再也不怕数据丢失
       </h2>
+      <div mt-64px>
+        <span text-32px color="#f3f3f3" font-bold onClick={onSkip}>开启应用</span>
+      </div>
     </div>
   )
 }
+
+export default Welcome4

@@ -1,7 +1,8 @@
 import { animated, useTransition } from '@react-spring/web'
-import { ReactNode, useCallback, useMemo ,memo} from 'react'
-import { useEffect, useRef, useState } from 'react'
-import { Link, Pathname, useLocation, useNavigate, useOutlet } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import type { Pathname } from 'react-router-dom'
+import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
@@ -19,7 +20,7 @@ const prevLinkMap: Record<Pathname, Pathname> = {
   '/welcome/4': '/welcome/3'
 }
 
-export const WelcomeLayout: React.FC = memo(() => {
+const WelcomeLayout: React.FC = memo(() => {
   const animating = useRef(false)
   const map = useRef<Record<string, ReactNode>>({})
   const location = useLocation()
@@ -79,18 +80,13 @@ export const WelcomeLayout: React.FC = memo(() => {
         <main shrink-1 grow-1 relative ref={main}>
           {transitions((style, pathName) =>
             <animated.div key={pathName} style={{ ...style, ...extraStyle }}
-              flex justify-center items-center w="100%" h-56vh>
+              flex justify-center items-center w="100%" h-72vh>
               {map.current[pathName]}
             </animated.div>
           )}
         </main>
-        <footer h="1/7" shrink-0 text-center text-24px>
-          {
-            nextLinkMap[location.pathname] !== '/home'
-              ? <Link to={nextLinkMap[location.pathname]} replace>下一页</Link>
-              : <Link to={nextLinkMap[location.pathname]} replace>开启应用</Link>
-          }
-        </footer>
       </div>
     </Gradient >)
 })
+
+export default WelcomeLayout

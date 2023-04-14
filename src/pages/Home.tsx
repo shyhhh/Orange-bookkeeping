@@ -5,11 +5,10 @@ import { useTitle } from '../hooks/useTitle'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
 import groovyWalkAnimation from '../assets/json/home.json'
 import { WelcomeScreen } from '../components/WelcomeScreen'
-// import { Icon } from '../components/Icon'
 interface Props {
   title?: string
 }
-export const Home: React.FC<Props> = (props) => {
+const Home: React.FC<Props> = (props) => {
   useTitle(props.title)
   const { get } = useAjax({ showLoading: true, handleError: false })
   const { data: meData, error: meError } = useSWR('/api/v1/me', async path => {
@@ -33,7 +32,6 @@ export const Home: React.FC<Props> = (props) => {
 
   return <div h-100vh>
     <div flex justify-center items-center >
-      {/* <Icon className="mt-20vh mb-20vh w-128px h-128px" name="pig" /> */}
       <WelcomeScreen animationData={groovyWalkAnimation} className="mt-40 mb-10"/>
     </div>
     <div px-16px>
@@ -44,3 +42,5 @@ export const Home: React.FC<Props> = (props) => {
     <AddItemFloatButton />
   </div >
 }
+
+export default Home
