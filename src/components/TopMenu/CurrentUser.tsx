@@ -25,16 +25,16 @@ export const CurrentUser: React.FC<Props> = ({ className }) => {
         ? (
           <Link to={`/sign_in?from=${from}`} >
             <h2 text-24px>未登录用户</h2>
-            <div text="#CEA1FF">点击这里登录</div>
+            <div text="#fecfa5">点击这里登录</div>
           </Link>
         )
         : (
           <div onClick={signOut}>
             <h2 text-24px title={name} overflow-hidden text-ellipsis>{name}</h2>
-            <div text="#CEA1FF">点击这里退出登录</div>
+            <div text="#fecfa5">点击这里退出登录</div>
           </div>
         )
       }
-    </div >
+    </div>
   )
 }
