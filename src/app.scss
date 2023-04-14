@@ -8,7 +8,7 @@
 }
 *{margin:0; padding: 0; box-sizing: border-box;}
 *::after, *::before{ box-sizing: border-box; }
-a{color: inherit; text-decoration: none;}
+a{color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent;}
 h1,h2,h3,h4,h5,h6{font-weight: normal;}
 ol,ul {list-style: none;}
 
