@@ -3,10 +3,10 @@ import type { ReactNode } from 'react'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Pathname } from 'react-router-dom'
 import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
-import logo from '../assets/images/logo.svg'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
 import { Gradient } from '../components/Gradient'
+import { Icon } from '../components/Icon'
 const nextLinkMap: Record<Pathname, Pathname> = {
   '/welcome/1': '/welcome/2',
   '/welcome/2': '/welcome/3',
@@ -75,7 +75,7 @@ const WelcomeLayout: React.FC = memo(() => {
             <span fixed top-16px right-16px text-16px onClick={onSkip}>跳过</span>
           </p>
           <div text-center>
-            <img src={logo} h-40px />
+            <Icon name='logo' className='w-40px h-40px'/>
             <h1 text='#f3f3f3' >橙子记账</h1>
           </div>
         </header>
