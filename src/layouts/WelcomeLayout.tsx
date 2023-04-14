@@ -72,7 +72,7 @@ const WelcomeLayout: React.FC = memo(() => {
       <div h-screen flex flex-col items-stretch>
         <header shrink-0 mb-32px >
           <p align-revert flex justify-end p-32px>
-            <span fixed top-16px right-16px text-16px onClick={onSkip}>跳过</span>
+            <span fixed top-16px right-16px text-24px onClick={onSkip}>跳过</span>
           </p>
           <div text-center>
             <Icon name='logo' className='w-40px h-40px'/>

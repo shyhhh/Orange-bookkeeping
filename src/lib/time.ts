@@ -160,4 +160,7 @@ export class Time {
     const pad = absolute.toString().padStart(2, '0')
     return `${this.format('yyyy-MM-ddTHH:mm:ss.fff') + sign + pad}:00`
   }
+  toISOString() {
+    return this.#date.toISOString()
+  }
 }

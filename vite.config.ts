@@ -22,7 +22,7 @@ export default defineConfig((env) => {
       }
     },
     server: {
-      // host: '0.0.0.0'
+      host: '0.0.0.0',
       proxy: {
         '/api/': {
           target: 'http://121.196.236.94:8080/',

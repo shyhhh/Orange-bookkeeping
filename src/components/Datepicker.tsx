@@ -7,7 +7,7 @@ type Props = {
   onCancel?: () => void
   onConfirm?: (value: Date) => void
 }
-const getNow = () => time().set({ hours: 0, minutes: 0, seconds: 0, ms: 0 })
+const getNow = () => time()
 export const Datepicker: React.FC<Props> = (props) => {
   const { start, end, value, onCancel, onConfirm } = props
   const startTime = start ? time(start) : getNow().add(-10, 'years')
@@ -16,7 +16,7 @@ export const Datepicker: React.FC<Props> = (props) => {
     throw new Error('结束时间必须晚于开始时间')
   }
   const [, update] = useState({})
-  const valueTime = useRef(value ? time(value).set({ hours: 0, minutes: 0, seconds: 0, ms: 0 }) : getNow())
+  const valueTime = useRef(value ? time(value).removeTime() : getNow())
   const yearList = Array.from({ length: endTime.year - startTime.year + 1 })
     .map((_, index) => startTime.year + index)
   const monthList = Array.from({ length: 12 }).map((_, index) => index + 1)
@@ -101,7 +101,7 @@ export const Column: React.FC<ColumnProps> = (props) => {
         onChange(items[Math.abs(y / itemHeight)])
       }}
     >
-      <div border-b-1 border-t-1 b-t-solid b-b-solid b="#eee" absolute top="50%" w-full
+      <div border-y-1 b-y-solid b="#eee" bg='#eee' absolute top="50%" w-full
         style={{ height: itemHeight, transform: `translateY(${-itemHeight / 2}px)` }} />
       <div absolute top="50%" w-full style={{ transform: `translateY(${-itemHeight / 2}px)` }}>
         <ol style={{ transform: `translateY(${translateY}px)` }} text-center children-flex children-items-center children-justify-center>
