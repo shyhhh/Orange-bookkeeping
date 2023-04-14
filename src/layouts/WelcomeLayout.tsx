@@ -1,5 +1,5 @@
 import { animated, useTransition } from '@react-spring/web'
-import { ReactNode, useMemo } from 'react'
+import { ReactNode, useCallback, useMemo ,memo} from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { Link, Pathname, useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
@@ -19,7 +19,7 @@ const prevLinkMap: Record<Pathname, Pathname> = {
   '/welcome/4': '/welcome/3'
 }
 
-export const WelcomeLayout: React.FC = () => {
+export const WelcomeLayout: React.FC = memo(() => {
   const animating = useRef(false)
   const map = useRef<Record<string, ReactNode>>({})
   const location = useLocation()
@@ -60,20 +60,20 @@ export const WelcomeLayout: React.FC = () => {
     }
   }, [direction, location.pathname, nextLinkMap])
   const { setHasReadWelcomes } = useLocalStore()
-  const onSkip = () => {
+  const onSkip = useCallback(() => {
     setHasReadWelcomes(true)
     nav('/home')
-  }
+  }, [setHasReadWelcomes, nav])
   return (
     <Gradient>
-      <div bg="#d1ecf8" h-screen flex flex-col items-stretch>
+      <div h-screen flex flex-col items-stretch>
         <header shrink-0 mb-32px >
           <p align-revert flex justify-end p-32px>
             <span fixed top-16px right-16px text-16px onClick={onSkip}>跳过</span>
           </p>
           <div text-center>
             <img src={logo} h-40px />
-            <h1 text='#5db29e' >橙子记账</h1>
+            <h1 text='#f3f3f3' >橙子记账</h1>
           </div>
         </header>
         <main shrink-1 grow-1 relative ref={main}>
@@ -87,10 +87,10 @@ export const WelcomeLayout: React.FC = () => {
         <footer h="1/7" shrink-0 text-center text-24px>
           {
             nextLinkMap[location.pathname] !== '/home'
-              ? <Link to={nextLinkMap[location.pathname]} className="b-red" replace>下一页</Link>
+              ? <Link to={nextLinkMap[location.pathname]} replace>下一页</Link>
               : <Link to={nextLinkMap[location.pathname]} replace>开启应用</Link>
           }
         </footer>
       </div>
     </Gradient >)
-}
+})
