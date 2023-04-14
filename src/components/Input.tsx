@@ -33,8 +33,7 @@ export const Input = <T extends string>(props: Props<T>) => {
       case 'emoji':
         return <EmojiInput {...common} />
       case 'select':
-        return <select value={value} onChange={e => onChange?.(e.target.value)}
-          className="h-36px rounded w60px p-x-6px">
+        return <select className="h-36px" {...common}>
           {props.options.map(option =>
             <option key={option.value} value={option.value}>{option.text}</option>)
           }
