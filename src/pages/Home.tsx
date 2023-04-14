@@ -31,10 +31,10 @@ export const Home: React.FC<Props> = (props) => {
     return <Navigate to="/items" />
   }
 
-  return <div>
-    <div flex justify-center items-center>
+  return <div h-100vh bg="#d1ecf8">
+    <div flex justify-center items-center >
       {/* <Icon className="mt-20vh mb-20vh w-128px h-128px" name="pig" /> */}
-      <WelcomeScreen animationData={groovyWalkAnimation} className="mt-30 mb-10"/>
+      <WelcomeScreen animationData={groovyWalkAnimation} className="mt-40 mb-10"/>
     </div>
     <div px-16px>
       <Link to="/items/new">

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import cs from 'classnames'
+import styled from 'styled-components'
 import s from './Tabs.module.scss'
 type Props<T> = {
   tabItems: {
@@ -12,6 +13,10 @@ type Props<T> = {
   className?: string
   classPrefix?: string
 }
+const RangeTitle = styled.div`
+  background: linear-gradient(180deg, rgba(246,246,246,1) 0%, rgba(255,213,175,1) 0%, rgba(255,232,210,1) 100%);
+  color:#909399;
+`
 const compareKey = <T extends (string | { name: string })>(a: T, c: T) => {
   if (typeof a === 'string' && typeof c === 'string') {
     return a === c
@@ -25,20 +30,22 @@ export const Tabs = <T extends string | { name: string }>(props: Props<T>) => {
   const { tabItems, value, onChange, className, classPrefix } = props
   return (
     <div className={cs(className, classPrefix)} flex flex-col>
-      <ol flex text-white children-px-24px children-py-12px bg="[rgb(143,76,215)]"
-        grow-0 shrink-0 className={classPrefix ? `${classPrefix}-menu` : ''}>
-        {tabItems.map(item =>
-          <li key={typeof item.key === 'string' ? item.key : item.key.name}
-            className={
-              cs(
-                compareKey(item.key, value) ? s.selected : '',
-                classPrefix ? `${classPrefix}-menu-item` : ''
-              )
-            }
-            onClick={() => onChange(item.key)}>
-            {item.text}
-          </li>)}
-      </ol>
+      <RangeTitle>
+        <ol flex children-px-24px children-py-12px
+          grow-0 shrink-0 className={classPrefix ? `${classPrefix}-menu` : ''}>
+          {tabItems.map(item =>
+            <li key={typeof item.key === 'string' ? item.key : item.key.name}
+              className={
+                cs(
+                  compareKey(item.key, value) ? s.selected : '',
+                  classPrefix ? `${classPrefix}-menu-item` : ''
+                )
+              }
+              onClick={() => onChange(item.key)}>
+              {item.text}
+            </li>)}
+        </ol>
+      </RangeTitle>
       <div grow-1 shrink-1 overflow-auto className={classPrefix ? `${classPrefix}-pane` : ''}>
         {tabItems.filter(item => compareKey(item.key, value))[0]?.element}
         {/* DOM diff 算法 */}

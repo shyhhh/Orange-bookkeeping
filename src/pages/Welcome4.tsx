@@ -17,9 +17,6 @@ export const Welcome4: React.FC = () => {
         云备份 <br />
         再也不怕数据丢失
       </h2>
-      <div mt-64px>
-        <span text-32px color="#FFC200" font-bold onClick={onSkip}>开启应用</span>
-      </div>
     </div>
   )
 }

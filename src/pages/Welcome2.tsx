@@ -10,9 +10,6 @@ export const Welcome2: React.FC = () => {
         每日提醒 <br />
         不会遗漏每一笔账单
       </h2>
-      <div mt-64px>
-        <Link text-32px color="#FFC200" font-bold to="/welcome/3">下一页</Link>
-      </div>
     </div>
   )
 }

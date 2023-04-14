@@ -9,8 +9,8 @@ export default defineConfig({
   theme: {
   },
   shortcuts: {
-    'h-btn': 'h-48px w-100% bg-#ffc141 b-none text-white text-18px rounded-8px px-12px',
-    'h-input-text': 'h-48px px-16px leading-32px py-8px b-#ffc141 b-1 b-solid focus:shadow focus:shadow-inset rounded-8px text-18px',
+    'h-btn': 'h-48px w-100% bg-#fdaa5f b-none text-white text-18px rounded-8px px-12px',
+    'h-input-text': 'h-48px px-16px leading-32px py-8px b-#fdaa5f b-1 b-solid focus:shadow focus:shadow-inset rounded-8px text-18px',
     'h-form': 'px-16px flex flex-col gap-y-8px children-flex children-flex-col',
     'h-form-label': 'text-18px mb-8px',
   },

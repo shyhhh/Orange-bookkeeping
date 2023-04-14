@@ -12,7 +12,7 @@ export const EmojiInput: React.FC<Props> = (props) => {
   const { value, onChange, className } = props
   const [emojiKind, setEmojiKind] = useState('表情')
   return (
-    <div className={cs(s.wrapper, className)} b-1 b-solid b="#ffc141" rounded-8px>
+    <div className={cs(s.wrapper, className)} b-1 b-solid b="#fdaa5f" rounded-8px>
       <div flex p-8px gap-x-16px overflow-auto text="#999">
         {emojis.map(emoji =>
           <span whitespace-nowrap key={emoji.name}
