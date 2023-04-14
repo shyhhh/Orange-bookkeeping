@@ -30,13 +30,14 @@ const WelcomeLayout: React.FC = memo(() => {
 
   const main = useRef<HTMLElement>(null)
   const { direction } = useSwipe(main)
+  const transitionRef = useRef({})
   const transitionConfig = useMemo(() => {
     const translateX = direction === 'right' ? -100 : 100
     const first = location.pathname === '/welcome/1' && direction === ''
-    return {
+    transitionRef.current = {
       from: { opacity: first ? 1 : 0, transform: `translateX(${first ? 0 : translateX}%)` },
       enter: { opacity: 1, transform: 'translateX(0%)' },
-      leave: { opacity: 0, transform: `translateX(${-translateX}%)`, },
+      leave: { opacity: 0, transform: `translateX(${-translateX / 2}%)`, },
       config: { duration: 350 },
       onStart: () => setExtraStyle({ position: 'absolute' }),
       onRest: () => {
@@ -44,6 +45,7 @@ const WelcomeLayout: React.FC = memo(() => {
         setExtraStyle({ position: 'relative' })
       }
     }
+    return transitionRef.current
   }, [direction, location.pathname])
   const transitions = useTransition(location.pathname, { ...transitionConfig })
   const nav = useNavigate()
@@ -77,10 +79,10 @@ const WelcomeLayout: React.FC = memo(() => {
             <h1 text='#f3f3f3' >橙子记账</h1>
           </div>
         </header>
-        <main shrink-1 grow-1 relative ref={main}>
+        <main shrink-1 grow-1 relative w-full overflow-hidden ref={main}>
           {transitions((style, pathName) =>
             <animated.div key={pathName} style={{ ...style, ...extraStyle }}
-              flex justify-center items-center w="100%" h-72vh>
+              flex justify-center items-center w="100%" h='100%'>
               {map.current[pathName]}
             </animated.div>
           )}
