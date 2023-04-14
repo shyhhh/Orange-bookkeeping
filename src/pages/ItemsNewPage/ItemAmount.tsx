@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { useState } from 'react'
+import { Icon } from '../../components/Icon'
 
 type Props = {
   className?: string
@@ -34,6 +35,9 @@ export const ItemAmount: React.FC<Props> = (props) => {
     }
   }
   const clear = () => {
+    setOutput(output.slice(0, output.length - 1))
+  }
+  const empty = () => {
     setOutput('0')
   }
   return (
@@ -43,9 +47,7 @@ export const ItemAmount: React.FC<Props> = (props) => {
           {props.itemDate}
           <code grow-1 shrink-1 text-right color="#53A867">{output}</code>
         </div>
-        <div py-1px grid
-          grid-cols="[repeat(4,1fr)]" grid-rows="[repeat(4,56px)]" bg="#ddd" gap-1px
-          children-b-none children-bg-white>
+        <div py-1px grid grid-cols="[repeat(4,1fr)]" grid-rows="[repeat(4,56px)]" bg="#ebeaea" gap-1px children-b-none children-bg-white>
           <button type="button" row-start-1 col-start-1 row-end-2 col-end-2 onClick={() => append('1')}>1</button>
           <button type="button" row-start-1 col-start-2 row-end-2 col-end-3 onClick={() => append('2')}>2</button>
           <button type="button" row-start-1 col-start-3 row-end-2 col-end-4 onClick={() => append('3')}>3</button>
@@ -57,7 +59,10 @@ export const ItemAmount: React.FC<Props> = (props) => {
           <button type="button" row-start-3 col-start-3 row-end-4 col-end-4 onClick={() => append('9')}>9</button>
           <button type="button" row-start-4 col-start-1 row-end-5 col-end-3 onClick={() => append('0')}>0</button>
           <button type="button" row-start-4 col-start-3 row-end-5 col-end-4 onClick={() => append('.')}>.</button>
-          <button type="button" row-start-1 col-start-4 row-end-3 col-end-5 onClick={clear}>清空</button>
+          <button type="button" row-start-1 col-start-4 row-end-2 col-end-5 onClick={clear}>
+            <Icon name='clear' className='w-50px h-30px' />
+          </button>
+          <button type="button" row-start-2 col-start-4 row-end-3 col-end-5 onClick={empty}>清空</button>
           <button onClick={onSubmit} type="submit" row-start-3 col-start-4 row-end-5 col-end-5
             bg="#fdaa5f" text-white >提交</button>
         </div>
