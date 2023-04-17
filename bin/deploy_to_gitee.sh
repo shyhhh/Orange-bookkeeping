@@ -6,5 +6,5 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 git remote add gitee git@gitee.com:he-honghe/orangebk.git
-git push -f gitee git@gitee.com:he-honghe/orangebk.git main:preview-pages
+git push -f gitee HEAD:preview-pages
 cd -
