@@ -28,6 +28,5 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:$user/$repo.git main:preview-pages
-git push -f gitee git@gitee.com:he-honghe/orangebk.git main:preview-pages
 cd -
 git home
